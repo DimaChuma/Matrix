@@ -1,0 +1,15 @@
+<head>
+    <title>Редактор</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body style='display: flex;align-items: center;'>
+        <form class='container theory' style='width:60%; padding:20px;' method='post'>
+            <input type='hidden' name='oldName' value='<%= fileInfo.fullName %>' />
+            <label class='text' style='font-size:20px;' >Назва</label>
+            <input type='text' class='editorName' name='name' value='<%= fileInfo.name %>' />
+            <label class='text' style='font-size:20px;'>Текст</label>
+            <textarea class='textarea' name='text'><%= fileInfo.text %></textarea>
+            <button class='btn' style='margin-bottom:0px;' type='submit' name='save'>Зберегти</button>
+        </form>
+    </body>

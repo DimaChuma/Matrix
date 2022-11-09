@@ -1,0 +1,318 @@
+
+body {
+    background: #292a2d;
+    margin: 0;
+}
+.container{
+    width: 500px;
+    margin: auto;
+    margin-top: 250px;
+    border-radius: 30px;
+    border: 2px solid rgb(143, 143, 143);
+    padding: 30px 30px 0 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #202124;
+    flex-direction: column;
+}
+
+button.btn {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background: #2e3354;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover{
+    background: #474f85;
+    
+}
+
+.panel{
+    height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+.text.result{
+    font-size: 26px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+}
+
+.btn.operation{
+    padding: 10px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+input.mulDigit {
+    background: transparent;
+    border: 2px solid white;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 20px;
+    width: 40px;
+    text-align: center;
+}
+
+.matrixOpCont {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.calculatorContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+}
+
+.matrix{
+	border-left: 3px solid white;
+    border-right: 3px solid white;
+    border-radius: 30px;
+    padding: 10px;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px;
+}
+.digit{
+	width: 70px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    background: none;
+    border: none;
+    transition: 0.5s;
+    color: white;
+}
+
+.topLeft{
+    border-radius: 30px 0 0 0;
+}
+
+.topRight{
+    border-radius: 0 30px 0 0;
+}
+
+.bottomLeft{
+    border-radius: 0 0 0 30px;
+}
+.bottomRight{
+    border-radius: 0 0 30px 0;
+}
+
+.digit:hover{
+	background: #444444;
+}
+
+.top{
+	border-top: 1px solid white;
+}
+
+.right{
+	border-right: 1px solid white;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.calc{
+    margin: 0;
+    width: max-content;
+}
+
+.matrixSettingContainer {
+    margin-bottom: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 200px;
+}
+
+.matrixContainer {
+    margin-bottom: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: max-content;
+}
+
+.text{
+    color: white;
+    font-size: 16px;
+}
+
+select.box {
+    padding: 10px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+option {
+    background: black;
+}
+
+.calculate{
+    width: 300px !important;
+}
+
+.operationContainer {
+    margin: 0px 20px 0px 20px;
+    height: 142px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.resCont{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.symbol{
+    color:white;
+    font-size:60px;
+    font-weight:bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.line {
+    border-bottom: 2px solid white;
+    width: 100%;
+    margin-top: 20px;
+}
+.res {
+    font-size: 22px;
+    margin-top: 20px;
+}
+label.themeName {
+    color: white;
+    font-size: 20px;
+}
+
+div.theme {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+    background: #292a2d;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+button.btn.theory {
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.container.theory {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0px;
+    padding-top: 20px;
+}
+
+.theoryText {
+    color: white;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.theoryThemeName {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.error{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+h1{
+    font-size: 50px;
+    color: white;
+    text-shadow: rgb(79 108 168) 0 0 26px, rgb(250 108 168 / 59%) 0 0 121px;
+}
+
+input.editorName {
+    padding: 10px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+textarea.textarea {
+    padding: 10px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    resize: none;
+    height: 500px;
+}
+
+.check {
+    margin-bottom: 20px;
+}
+
+.searchCont {
+    display: flex;
+    align-items: center;
+}

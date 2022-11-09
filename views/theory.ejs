@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  >
+<head>
+        <title>Теорія</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+        <body style='display: flex;'>
+            <form class='container theory' method='post'>
+            <button class='btn' name='editor' style='margin-left:20px;margin-right:20px; width:auto;'>Редактор</button>
+            <div class="searchCont">
+                <input type="text" style="margin-top:0px; width:100%;margin-left:20px;" class="editorName" name="search" placeholder="Пошук" />
+                <button type="submit" style="margin-bottom:20px;width:25%; margin-left:20px; margin-right:20px;" class="btn" name="searchBtn">Пошук</button>
+            </div>
+            <% files.forEach(function(file) { %>
+                <div class='theme'>
+                    <label class='themeName'><%= file.name %></label>
+                    <button type='submit' class='btn theory' name='themeName' value='<%= file.file %>' >Читати</button>
+                </div>
+                <% }); %>
+        </form>
+    </body>
+</html>

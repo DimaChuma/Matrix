@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= file.name %></title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body style='display: flex;'>
+        <div class='container theory' method='post'>
+            <div class='theoryThemeName'> <%= file.name %> </div>
+            <div class='theoryText'>
+                <%- file.text %>
+            </div>
+        </div>
+    </body>
+</html>

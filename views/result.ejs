@@ -1,0 +1,37 @@
+    <head>
+        <title>Результат</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body style='height:100%;'>
+        <div class='panel'>
+            <div class='container calc' style='padding-bottom:20px;'>
+            <div class='text result'>Результат</div>
+
+            <div class='resCont'>
+                <%- result.matrix %>
+            </div>
+            <div class='resCont'>
+                <div class='text result res'>Відповідь</div>
+            </div>
+            <div class='resCont'>
+                <%- result.result %>
+            </div>
+            <% if (transposition.matrix) { %>
+                <div style='margin-top:20px;' class='text result'>Транспонування</div>
+                <div class='resCont'>
+                    <%- transposition.matrix %>
+                </div>
+                <div class='resCont'>
+                    <div class='text result res'>Відповідь</div>
+                </div>
+                <div class='resCont'>
+                    <%- transposition.result %>
+                </div>
+                <% } %>
+            <form style='margin:0px;' method='post'>
+                <button class='btn' style='margin-top:20px; margin-bottom:0px;' name='back' type='submit'>Назад</button>
+            </form>
+            </div>
+        </div>
+    </body>

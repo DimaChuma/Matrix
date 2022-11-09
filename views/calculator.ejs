@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+<head>
+    <title>Калькулятор</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
+</head>
+<body style="height:100%;">
+    
+		
+<div class="panel">
+    <form class='container calc' method='post'>
+		<div class='calculatorContainer'>
+			<div class="matrixContainer"> 
+				<label class="text">Рядків</label>
+				<select class='box' name='row' onchange="create(this.parentElement)">
+					<option value="2" >2</option>
+					<option selected="selected"  value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+					<option value="10" >10</option>
+				</select>
+				<label class="text" style="margin-top: 20px;">Колонок</label>
+				<select class='box' name='col' onchange="create(this.parentElement)">
+					<option value="2" >2</option>
+					<option selected="selected"  value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+					<option value="10" >10</option>
+				</select>
+				<div class="matrix">
+				</div>
+				<button class='operation btn' value="1" name="transposition" type="submit">Транспонувати</button>
+				<div class="matrixOpCont">
+					<button style='margin-top:0;' class='operation btn' value="1" name="mulBtn" type="submit">Помножити на число</button>
+					<input class="mulDigit" name="mulDigit" placeholder="0" oninput="this.value = this.value.replace(/[^\d]/g,'');" />
+				</div>
+			</div>
+
+			
+			<div class="operationContainer">
+				<label class="text">Операція</label>
+				<select class='box' name='operation'>
+					<option selected="selected" value="+" >+</option>
+					<option value="-" >-</option>
+					<option value="×" >×</option>
+				</select>
+			</div>
+
+
+			<div class="matrixContainer"> 
+				<label class="text">Рядків</label>
+				<select class='box' name='row' onchange="create(this.parentElement)">
+					<option value="2" >2</option>
+					<option selected="selected"  value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+					<option value="10" >10</option>
+				</select>
+				<label class="text" style="margin-top: 20px;">Колонок</label>
+				<select class='box' name='col' onchange="create(this.parentElement)">
+					<option value="2" >2</option>
+					<option selected="selected"  value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+					<option value="10" >10</option>
+				</select>
+				<div class="matrix">
+				</div>
+				<button class='operation btn' value="2" name="transposition" type="submit">Транспонувати</button>
+				<div class="matrixOpCont">
+					<button style='margin-top:0;' class='operation btn' value="2" name="mulBtn" type="submit">Помножити на число</button>
+					<input class="mulDigit" name="mulDigit" placeholder="0" oninput="this.value = this.value.replace(/[^\d-]/g,'');" />
+				</div>
+				
+			</div>
+		</div>
+		<div class="check">
+			<input class='checkbox' type="checkbox"  name='T' />
+			<label class='text' for="T">Транспонувати результат</label>
+		</div>
+        <button class='calculate btn' name="btnOperation" type="submit">Обчислити</button>
+    </form>
+</div>
+</body>
+<script>
+
+    function create(element){
+
+	let row = $(element).children('select[name="row"]').val();
+	let col = $(element).children('select[name="col"]').val();
+	let matrix = $(element).children(".matrix").empty();
+
+	matrix.css("grid-template-columns", "repeat(" + col + ", 1fr)");
+	for(let r = 1; r <= row; r++){
+		for(let c = 1; c <= col; c++){
+			let digit = document.createElement("input");
+			digit.type = "text";
+			digit.className = "digit";
+			digit.name = "digits";
+			digit.placeholder = "0";
+			digit.addEventListener('input', function(){this.value = this.value.replace(/[^\d-\.]/g,'');}, true);
+
+            if (c == 1 && r == 1) {
+                digit.classList.add("topLeft");
+            }
+            else if (c == col && r == 1) {
+                digit.classList.add("topRight");
+            }
+            else if (c == 1 && r == row) {
+                digit.classList.add("bottomLeft");
+            }
+            else if (c == col && r == row) {
+                digit.classList.add("bottomRight");
+            }
+			if(c%col != 0){
+				if(r > 1){
+					digit.classList.add("top");
+					digit.classList.add("right");
+					matrix.append(digit);
+				}
+				else{
+					digit.classList.add("right");
+					matrix.append(digit);
+				}
+			}
+			else if(c%col == 0 && r > 1) {
+				digit.classList.add("top");
+				matrix.append(digit);
+			}
+			else {
+				matrix.append(digit);
+			}
+		}
+		
+	}
+}
+
+function ready() {
+	$(".matrixContainer").each(function()
+		{
+			create(this);
+		});
+  }
+document.addEventListener("DOMContentLoaded", ready);
+
+
+</script>
+</html>
